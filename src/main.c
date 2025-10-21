@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
             return STATUS_ERROR;
         }
 
-        if(create_db_header(dbfd, &dbheader) == STATUS_ERROR) {
+        if(create_db_header(&dbheader) == STATUS_ERROR) {
             printf("Failed to create database header\n");
             return STATUS_ERROR;
         }
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    output_file(dbfd, dbheader);
+    output_file(dbfd, dbheader, NULL);
 
     return STATUS_SUCCESS;
 }
