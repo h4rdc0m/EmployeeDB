@@ -9,6 +9,8 @@ run: clean default
 
 default: $(TARGET)
 
+all: clean default
+
 clean:
 	rm -f obj/*.o
 	rm -f bin/*
@@ -18,6 +20,6 @@ $(TARGET): $(OBJ)
 	gcc -o $@ $?
 
 obj/%.o : src/%.c
-	gcc -c $< -o $@ -Iinclude
+	gcc -c $< -o $@ -Iinc
 
 
