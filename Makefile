@@ -9,7 +9,7 @@ run: clean default
 
 default: $(TARGET)
 
-all: clean default
+all: clean default run
 
 clean:
 	rm -f obj/*.o
