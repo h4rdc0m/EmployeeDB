@@ -122,3 +122,18 @@ int kv_delete(kv_t *db, const char* key) {
 
     return -2;
 }
+
+void kv_free(kv_t *db) {
+    if (!db) return;
+
+    for (size_t i = 0; i < db->capacity; i++) {
+        kv_entry_t *entry = &db->entries[i];
+        if (entry->key && entry->key != TOMBSTONE) {
+            free(entry->key);
+            free(entry->value);
+        }
+    }
+
+    free(db->entries);
+    free(db);
+}
